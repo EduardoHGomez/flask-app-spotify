@@ -1,5 +1,5 @@
 const clientId = '8d6a62d1e85e412d9f237a08f9ee13ee';
-const redirectUri = 'http://localhost:3000/';
+const redirectUri = 'https://flask-app-spotify-nt38.vercel.app/';
 
 const urlParams = new URLSearchParams(window.location.search);
 let code = urlParams.get('code');
