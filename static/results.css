@@ -13,6 +13,10 @@ body {
     font-family: "Roboto", sans-serif;
     font-style: normal;
     color: #282828;
+
+    overflow-x: hidden;
+
+
 }
 
 
@@ -25,7 +29,6 @@ body {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 2fr 1fr;
     gap: 8px;
-    height: 100vh; /* Ensure body fills the viewport vertically */
 }
 
 .container-top {
@@ -71,6 +74,7 @@ body {
     grid-area: container-middle;
     display: flex;
     flex-direction: column;
+    height: auto;
 }
 
 .container-middle h1 {
