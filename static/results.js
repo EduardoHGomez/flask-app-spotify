@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log(data);
     
     let data = JSON.parse(localStorage.getItem('results'));
     let slide_track = document.querySelector('.slide-track');
+
+    console.log(data);
     
     for(let i=0; i<15; i++) {
         let new_image = `
