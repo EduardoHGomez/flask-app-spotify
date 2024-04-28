@@ -6,6 +6,68 @@
     <title>Document</title>
 </head>
 <body>
-    Eres mi hijo we 
+
+    <!-- Canvas -->
+  <canvas class="orb-canvas"></canvas>
+  <!-- Overlay -->
+	<div class="overlay">
+		<!-- Overlay inner wrapper -->
+		<div class="overlay__inner">
+		<!-- Title -->
+			<h1 class="overlay__title">
+				Spotify music taste check     
+				<span class="text-gradient">generative</span>
+			</h1>
+		<!-- Description -->
+			<p class="overlay__description">
+				With this app, you will get a basic understanding
+				<strong></strong>
+			</p>
+		<!-- Buttons -->
+			<div class="overlay__btns">
+
+				<button id="signInButton" class="overlay__btn overlay__btn--transparent">
+				<a target="_blank">
+					Iniciar sesión Spotify 
+				</a>
+				</button>
+
+				<button id="getTracks" class="overlay__btn overlay__btn--colors">
+				<span></span>
+					Analizar gusto musical
+					<span class="overlay__btn-emoji">🎧</span>
+				</button>
+
+
+
+			</div>
+		</div>
+	</div> 
+
+
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<h3>Analizando tus gustos musicales...</h3>
+			<dotlottie-player src="https://lottie.host/a26b823a-c0fc-4418-b0c2-85efb72c6739/iZhESTjzn1.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+		</div>
+
+	</div>
+
+
+
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='signIn.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='modal.css') }}">
+
+    <script type="module" src="{{url_for('static', filename='signIn.js')}}"></script>
+    <script src="{{url_for('static', filename='index.js')}}"></script>
+    <script src="{{url_for('static', filename='tracks.js')}}"></script>
+
+	<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+
+    
 </body>
 </html>

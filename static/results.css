@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    /* Clouds Gradient */
+    background: (#ECE9E6, #FFFFFF);
+    background: -webkit-linear-gradient(360deg, #ECE9E6, #FFFFFF);
+    background: linear-gradient(360deg, #ECE9E6, #f5fdff);
+    background-repeat: no-repeat;
+
+    background-size: cover; /* Cover the entire viewport */
+    margin: 0; /* Remove default margin */
+
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    color: #282828;
+}
+
+
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "container-top container-top container-top"
+        "container-left container-middle container-right";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 8px;
+    height: 100vh; /* Ensure body fills the viewport vertically */
+}
+
+.container-top {
+    grid-area: container-top;
+    margin-top: 3vh;
+    margin-bottom: 4vh;
+    display: grid;
+    place-items: center;
+}
+
+.slide-track {
+    display: flex;
+    width: calc(250px * 30);
+    animation: scroll 60s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px*15));
+    }
+}
+
+.slide {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+
+.container-top img{
+    width: 28vh;
+    box-shadow: 0px 25px 20px 1px rgba(0,0,0,0.1);
+}
+
+.container-left {
+    grid-area: container-left;
+}
+
+.container-middle {
+    grid-area: container-middle;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-middle h1 {
+    font-weight: 700;
+    text-align: center;
+}
+
+.middle_text {
+    margin-right: 5vh;
+    margin-left: 5vh;
+    font-size: 1.2em;
+}
+
+.middle_text div{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container-right {
+    grid-area: container-right;
+}
+
+
