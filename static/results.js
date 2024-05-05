@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         slide_track.innerHTML += new_image;
     }
+    console.log(data.spotify_result);
 
     runMessages(data.result);
 
@@ -36,33 +37,39 @@ async function typeWriteThisAsync(txt, selector) {
 }
 
 async function runMessages(data) {
+    console.log(data);
 
     await typeWriteThisAsync("Resultados de tu análisis musical 🧐", ".header_text");
 
     // Make the contain
     let danceability = data.danceability['0'];
-    danceability = Number(danceability * 100).toFixed(2);
+    danceability = Number(danceability * 1).toFixed(2);
     await typeWriteThisAsync("Danceability", ".danceability-header");
-    await typeWriteThisAsync(`${danceability}`, ".danceability-body");
+    await typeWriteThisAsync(`${danceability} %`, ".danceability-body");
 
     // Energy
     let energy = data.energy['0'];
-    energy = Number(energy * 100).toFixed(2);
+    energy = Number(energy * 1).toFixed(2);
     await typeWriteThisAsync("Energy", ".energy-header");
-    await typeWriteThisAsync(`${energy}`, ".energy-body");
+    await typeWriteThisAsync(`${energy} %`, ".energy-body");
 
-    // Loudness
-    let loudness = data.loudness['0'];
-    loudness = Number(loudness * 100).toFixed(2);
-    await typeWriteThisAsync("Loudness", ".loudness-header");
-    await typeWriteThisAsync(`${loudness}`, ".loudness-body");
+    // Spechiness 
+    let spechiness = data.spechiness['0'];
+    spechiness = Number(spechiness* 1).toFixed(2);
+    await typeWriteThisAsync("Spechiness", ".spechiness-header");
+    await typeWriteThisAsync(`${spechiness} %`, ".spechiness-body");
 
     // Valence
     let valence = data.valence['0'];
-    valence = Number(valence).toFixed(2);
+    valence = Number(valence * 1).toFixed(2);
     await typeWriteThisAsync("valence", ".valence-header");
-    await typeWriteThisAsync(`${loudness}`, ".valence-body");
+    await typeWriteThisAsync(`${valence} %`, ".valence-body");
 
+    // Instrumentalness
+    let instrumentalness = data.instrumentalness['0'];
+    instrumentalness= Number(instrumentalness * 1).toFixed(2);
+    await typeWriteThisAsync("Instrumentalness", ".instrumentalness-header");
+    await typeWriteThisAsync(`${instrumentalness} %`, ".instrumentalness-body");
 
 
 }

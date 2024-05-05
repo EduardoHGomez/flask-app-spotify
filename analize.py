@@ -57,22 +57,20 @@ def main_analysis(user_df):
 
     # ---- A partir de aqui, analizaremos algunas columna con base en lo que escucha el usuario ----
 
-    # Obtener el danceability promedio
-    avg_danceability_user = user_df['danceability'].mean()
-    print("Danceability", avg_danceability_user)
+    # Obtener solo las columnas que nos interesan, siendo aquellos entre valores de 0 y 1
+    avg_danceability_user = user_df['danceability'].mean() * 100
 
     # Obtener el energy promedio
-    avg_energy_user = user_df['energy'].mean()
-    print("Energy", avg_energy_user)
+    avg_energy_user = user_df['energy'].mean() * 100
 
     # Obtener el valence promedio
-    avg_valence_user = user_df['valence'].mean()
-    print("Valence", avg_valence_user)
+    avg_valence_user = user_df['valence'].mean() * 100
 
     # Obtener el loudness promedio
-    avg_loudness_user = user_df['loudness'].mean()
-    print("Loudness", avg_loudness_user )
+    avg_spechiness_user = user_df['speechiness'].mean() * 100
 
+    # Obtener el loudness promedio
+    avg_instrumentalness_user = user_df['instrumentalness'].mean() * 100
     
 
     # ---- Hacer lo mismo que para el usuario pero con las canciones más escuchadas ------------
@@ -111,12 +109,22 @@ def main_analysis(user_df):
 
     user_result = user_df[['name', 'image']]
     user_result = user_result.to_dict()
-    result = user_df.to_dict()
+    result = [['user_stats', avg_danceability_user, avg_energy_user, avg_valence_user, avg_spechiness_user, avg_instrumentalness_user]]
+    result = pd.DataFrame(result, columns=['type', 'danceability', 'energy', 'valence', 'spechiness', 'instrumentalness'])
+    result = result.to_dict()
+
+    print("HERE")
+
+    spotify_result = [['spotify_stats', 56.68006429880964, 64.13832705304432, 47.406595085044614, 8.465232414319424, 15.605092335213467]]
+    spotify_result = pd.DataFrame(spotify_result, columns=['type', 'danceability', 'energy', 'valence', 'spechiness', 'instrumentalness'])
+    spotify_result = spotify_result.to_dict()
+
+    
 
     both_results = {
-            'result': result,
-            'user_result': user_result
-        }
+        'result': result,
+        'user_result': user_result,
+        'spotify_result': spotify_result
+    }
 
     return both_results 
-    
