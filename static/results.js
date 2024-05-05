@@ -12,15 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
         slide_track.innerHTML += new_image;
     }
 
-    /*
-    typeWriter('Resultados de tu análisis musical 🧐', '.header_text', 50, function() {
-        setTimeout(function() {
-            loadResults(data.result);
-        }, 1200);
-    });
-
-    */
-
     runMessages();
 
 });
@@ -50,23 +41,6 @@ async function runMessages() {
     console.log("All messages typed!");
 }
 
-
-
-
-
-function typeWriter(text, selector, speed, callback) {
-    let i = 0; // Initialize the counter to 0
-    function type() {
-        if (i < text.length) {
-            document.querySelector(selector).innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        } else if (callback) {
-            callback(); // Call the callback function if provided
-        }
-    }
-    setTimeout(type, speed); // Start the typing effect
-}
 
 
 
