@@ -1,10 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     
     let data = JSON.parse(localStorage.getItem('results'));
     let slide_track = document.querySelector('.slide-track');
-
-    console.log(data);
     
     for(let i=0; i<15; i++) {
         let new_image = `
@@ -15,15 +12,47 @@ document.addEventListener('DOMContentLoaded', () => {
         slide_track.innerHTML += new_image;
     }
 
+    /*
     typeWriter('Resultados de tu análisis musical 🧐', '.header_text', 50, function() {
         setTimeout(function() {
             loadResults(data.result);
         }, 1200);
     });
 
+    */
 
+    runMessages();
 
 });
+
+async function typeWriteThisAsync(txt, selector) {
+    var i = 0;
+    var speed = 50;
+
+    return new Promise(resolve => {
+        function typeWriter() {
+            if (i < txt.length) {
+                document.querySelector(selector).innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                resolve();
+            }
+        }
+
+        typeWriter();
+    });
+}
+
+async function runMessages() {
+    await typeWriteThisAsync("First message. ", ".header_text");
+    await typeWriteThisAsync("Second message. ", ".middle_text");
+    console.log("All messages typed!");
+}
+
+
+
+
 
 function typeWriter(text, selector, speed, callback) {
     let i = 0; // Initialize the counter to 0
