@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slide_track.innerHTML += new_image;
     }
 
-    runMessages();
+    runMessages(data.result);
 
 });
 
@@ -35,10 +35,36 @@ async function typeWriteThisAsync(txt, selector) {
     });
 }
 
-async function runMessages() {
-    await typeWriteThisAsync("First message. ", ".header_text");
-    await typeWriteThisAsync("Second message. ", ".middle_text");
-    console.log("All messages typed!");
+async function runMessages(data) {
+
+    await typeWriteThisAsync("Resultados de tu análisis musical 🧐", ".header_text");
+
+    // Make the contain
+    let danceability = data.danceability['0'];
+    danceability = Number(danceability * 100).toFixed(2);
+    await typeWriteThisAsync("Danceability", ".danceability-header");
+    await typeWriteThisAsync(`${danceability}`, ".danceability-body");
+
+    // Energy
+    let energy = data.energy['0'];
+    energy = Number(energy * 100).toFixed(2);
+    await typeWriteThisAsync("Energy", ".energy-header");
+    await typeWriteThisAsync(`${energy}`, ".energy-body");
+
+    // Loudness
+    let loudness = data.loudness['0'];
+    loudness = Number(loudness * 100).toFixed(2);
+    await typeWriteThisAsync("Loudness", ".loudness-header");
+    await typeWriteThisAsync(`${loudness}`, ".loudness-body");
+
+    // Valence
+    let valence = data.valence['0'];
+    valence = Number(valence).toFixed(2);
+    await typeWriteThisAsync("valence", ".valence-header");
+    await typeWriteThisAsync(`${loudness}`, ".valence-body");
+
+
+
 }
 
 
